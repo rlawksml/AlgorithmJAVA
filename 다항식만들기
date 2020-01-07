@@ -1,0 +1,36 @@
+import java.util.*;
+import java.util.Vector;
+
+public class Poly {
+	private int degree;
+	private int coef[ ] = new int[20];
+	
+	public Poly(int degree, int [] coef) {
+		this.degree = degree;
+		this.coef = coef;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("다항식 몇개 만들 것인가?");
+		Poly [] myPoly = new Poly[sc.nextInt()];
+		
+		for(int i=0; i<myPoly.length; i++) {
+			System.out.println("원하는 차수 ");
+			int degree = sc.nextInt();
+			for(int j=0; j<degree; j++) {
+				int [ ] a= new int [degree];
+				System.out.print("원하는 계수를 넣으시오 ");
+				a[i] = sc.nextInt();
+				
+				myPoly[i] = new Poly(degree, a);	
+			}
+		}
+
+
+		
+	
+	}
+}
