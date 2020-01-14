@@ -58,6 +58,22 @@ public class LinkedList {
     }
 }
 
+public String toString(){
+	if(head == nul){
+	return "[ ]";
+	}
+	// node에 head(첫번째 데이터) 삽입한다.
+	Node temp = head;
+	String str ="[" ;
+
+	// temp가 지금은 head로 설정되어 있고 이후 temp = temp.next를 통해서 한칸씩 옆으로 이동한다.
+	while(temp.next != null){
+		str += temp.data + ",";
+		temp = temp.next;
+	}
+	str += temp.data;
+	return str + "]";
+}
 
 
 }
