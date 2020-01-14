@@ -75,5 +75,47 @@ public String toString(){
 	return str + "]";
 }
 
+// 첫번째 노드를 삭제하는 함수
+public Object removeFirst() {
+	Node temp = head;
+	head = head.next;
+	Object returnData = temp.data;
+	temp = null;
+	size --;
+	return returnData;
+}
+
+
+public Object remove(int k){
+	// k가 0이라는 것은 첫번째 값이다.
+	if(k == 0){
+	removeFirst();
+	}
+	// 이전 노드를 temp에 저장한다.
+	Node temp = node(k-1);
+	// 삭제할 노드도 tododeleted에 저장한다. -> 이 값에 접근을 해야하므로
+	Node todoDeleted = temp.next;
+	//temp next next는 1 -> 2 -> 3 에서 1 ->-> 3이 되는 과정이다.
+	temp.next = temp.next.next;
+	//returnData 에 tododeleted를 저장
+	Object returnData = todoDeleted;
+	//tododeleted가 tail 즉 마지막일때 삭제
+	if(todoDeleted == tail){
+	tail = temp;
+	}
+	todoDeleted = null;
+	size --;
+	return returnData;
+}
+
+// 마지막 tail을 삭제하는 함수
+public Object removeLast(){
+	//size = 현재 크기 크기에서 한단계 줄이면 tail전의 노드를 선택할 수 있다.
+	return remove(size-1);
+}
+
+
+
+
 
 }
