@@ -115,6 +115,37 @@ public Object removeLast(){
 }
 
 
+public int size(){
+	// 사이즈를 함수에서 추가나 삭제가 발생할때마다 값을 변경해 줬기 때문에 가능함
+	return size;
+}
+
+public Object get(int k){
+	//찾고 싶은 노드의 순서 k를 인자로 받아서 k번째 node의 값을 찾음
+Node temp = node(k);
+return temp.data;
+}
+
+
+// 데이터를 통해서  노드의 인덱스 정보 검색 함수
+public int indexOf(Object data){
+	Node temp = head;
+	int index = 0;
+	// 인자 data 값이 head의 값과 같은지 비교
+	while(temp.data != data){
+	// 같지 않으면 temp 노트 한칸 옆 노드로 이동
+		temp = temp.next;
+		index++;
+	// if(temp == null)는 범위 밖의 값이 입력되음을 의미
+		if(temp == null){
+			return -1;
+		}
+	}
+	return index;
+}
+
+
+
 
 
 
