@@ -145,6 +145,25 @@ public int indexOf(Object data){
 }
 
 
+public ListIterator listIterator(){
+	return new ListIterator();
+}
+
+class ListIterator(){
+	private Node lastReturned;
+	private Node next;
+	private int nextIndex;
+
+	ListIterator(){
+	next = head;
+	}
+	public Object next(){
+	lastReturned = next;
+	next = next.next;
+	nextIndex++;
+	return lastReturned.data;
+	}
+}
 
 
 
