@@ -21,6 +21,6 @@ public class GenericDemo {
         Integer i = new Integer(10);
         Person<EmployeeInfo, Integer> p1 = new Person<EmployeeInfo, Integer>(e, i);
         p1.<EmployeeInfo>printInfo(e);
-        p1.printInfo(e);
+        p1.printInfo(e.rank);
     }
 }
