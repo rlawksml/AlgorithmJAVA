@@ -15,6 +15,24 @@ class Person<A, B>{
         System.out.println(info);
     }
 }
+
+class Nature<T , I>{
+   public T info;
+   public I power;
+   Nature(T info, I power){
+      this.info = info;
+      this.power = power;
+   }
+   public <A> void printInfo() {
+      System.out.println(this.info +" : "+ this.power);
+   }
+}
+
+class NatureInfo{
+    public int rank;
+    NatureInfo(int rank){ this.rank = rank; }
+}
+
 public class GenericDemo {
     public static void main(String[] args) {
         EmployeeInfo e = new EmployeeInfo(1);
@@ -22,5 +40,8 @@ public class GenericDemo {
         Person<EmployeeInfo, Integer> p1 = new Person<EmployeeInfo, Integer>(e, i);
         p1.<EmployeeInfo>printInfo(e);
         p1.printInfo(e.rank);
+        
+        NatureInfo a1 = new NatureInfo(1);
+        Nature<NatureInfo, Integer> n1 = new Nature<NatureInfo, Integer>(a1, 5);
     }
 }
