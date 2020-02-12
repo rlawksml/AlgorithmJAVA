@@ -34,13 +34,13 @@ public class LinkedList {
 	}
 	
 	public void addLast(Object input){
-		    Node newNode = new Node(input);
-		    if(size == 0){
-			addFirst(input);
-		    } else {
-			tail.next = newNode;
-			tail = newNode;
-			size++;
+		    Node newNode = new Node(input); // 새로운 노드 생성
+		    if(size == 0){ //리스트의 사이즈가 0이다 == 노드가 아무것도 없다.
+			addFirst(input); // 첫번째 추가하는 것처럼 노드를 추가한다.
+		    } else { // 노드가 존재한다
+			tail.next = newNode; //tail.next 테일이 가르키는 노드의 next가 새로운 node가 된다. 
+			tail = newNode; // tail은 이제 새롭게 추가된 노드
+			size++; //리스트 사이즈 증가
 		    }
 	}
 	Node node(int index) {
