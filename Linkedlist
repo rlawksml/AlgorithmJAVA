@@ -43,6 +43,8 @@ public class LinkedList {
 			size++; //리스트 사이즈 증가
 		    }
 	}
+	
+	// 원하는 노드 접근 내부 함수 (사용자에가 노출 X)
 	Node node(int index) {
 		    Node x = head;
 		    for (int i = 0; i < index; i++)
@@ -54,34 +56,35 @@ public class LinkedList {
 		    if(k == 0){
 			addFirst(input);
 		    } else {
-			Node temp1 = node(k-1);
-			Node temp2 = temp1.next;
-			Node newNode = new Node(input);
-			temp1.next = newNode;
-			newNode.next = temp2;
-			size++;
-			if(newNode.next == null){
-			    tail = newNode;
+			Node temp1 = node(k-1); // 추가할 자리의 노드 앞의 값
+			Node temp2 = temp1.next;// 추가할 자리의 노드 뒤의 값
+			Node newNode = new Node(input); // 새 노드 생성 input값
+			temp1.next = newNode; //temp1.next 연결 newnode
+			newNode.next = temp2; // newnode에 temp2 연결
+			size++; // 사이즈 증가
+			if(newNode.next == null){ // 리스트에 추가된 노드가 가장 마지막 노드일 경우
+			    tail = newNode;	  // 테일을 새 노드로 설정
         }
     }
 }
 
-public String toString(){
-	if(head == nul){
-	return "[ ]";
-	}
-	// node에 head(첫번째 데이터) 삽입한다.
-	Node temp = head;
-	String str ="[" ;
+	public String toString(){
+		if(head == null){ // 리스트에 노드가 아예 없을 경우
+		return "[ ]";
+		}
+		// node에 head(첫번째 데이터) 삽입한다.
+		Node temp = head;
+		String str ="[" ;
 
-	// temp가 지금은 head로 설정되어 있고 이후 temp = temp.next를 통해서 한칸씩 옆으로 이동한다.
-	while(temp.next != null){
-		str += temp.data + ",";
-		temp = temp.next;
+		// temp가 지금은 head로 설정되어 있고 이후 temp = temp.next를 통해서 한칸씩 옆으로 이동한다.
+		while(temp.next != null){ // 리스트에 2개 이상의 값이 있을 경우 while문 실행
+			str += temp.data + ","; // 
+			temp = temp.next; // 출력하기 위한 노드를 한칸씩 next로 이동
+		}
+		str += temp.data;
+		return str + "]";
 	}
-	str += temp.data;
-	return str + "]";
-}
+
 
 // 첫번째 노드를 삭제하는 함수
 public Object removeFirst() {
