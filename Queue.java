@@ -46,9 +46,9 @@ class Queue<T>{
 		first = first.next;
 
 		if(first == null){
-			last == null;
+			last = null;
 		}
-		return data;
+		System.out.println(data);
 	}
 
 	public T peek(){
