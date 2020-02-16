@@ -1,0 +1,59 @@
+public class Treetest {
+
+	private Object Data;
+	private Treetest left;
+	private Treetest right;
+	
+	public Treetest(Object data) {
+		this.Data = data;
+		this.left = null;
+		this.right = null;
+	}
+	
+	public void addnodeLeft(Treetest Node) {
+		if(left != null) {
+			this.left = null;
+		}
+		this.left = Node;
+	}
+	
+	public void addnodeRight(Treetest Node) {
+		if(right != null) {
+			this.right = null;
+		}
+		this.right = Node;
+	}
+	
+	public Object get() {
+		return Data;
+	}
+	
+	public Object getright() {
+		return right.Data;
+	}
+	
+	public Object getleft() {
+		return left.Data;
+	}
+	
+	public static void main(String args[]) {
+		Treetest v1 = new Treetest(1);
+		Treetest v2 = new Treetest(2);
+		Treetest v3 = new Treetest(3);		
+		Treetest v4 = new Treetest(4);
+		Treetest v5 = new Treetest(5);
+		
+		v1.addnodeLeft(v2);
+		v1.addnodeRight(v3);
+		v2.addnodeLeft(v4);
+		v2.addnodeRight(v5);
+		
+		System.out.println(v1.get());
+		System.out.println(v1.getleft());
+		System.out.println(v1.getright());	
+		System.out.println(v2.get());
+		System.out.println(v2.getleft());
+		System.out.println(v2.getright());	
+	
+	}
+}
