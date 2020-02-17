@@ -1,0 +1,51 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String [] args) {
+		Scanner sc = new Scanner(System.in);
+		int [] a = new int [100];
+		int temp, min, size = sc.nextInt();
+		
+		for(int i =0; i<size ; i++) {
+			a[i]=sc.nextInt();
+		}
+		
+		for(int i=0; i<size-1; i++) {
+			min = i;
+			for(int j=1+i; j<size; j++) {
+				if(a[min]> a[j]) {
+					min = j;
+				}
+			}
+			temp = a[min];
+			a[min] = a[i];
+			a[i] = temp;
+		}
+		
+		System.out.println("정렬 완료");
+		for(int i =0; i<size ; i++) {
+			System.out.println(a[i]);
+		}
+	
+		String grade[] = new String [size];
+		for(int i=0; i<size; i++) {
+
+			switch(a[i]/10) {
+			case 10 : grade[i] = "A+"; break;
+	        
+            case 9 : grade[i] = "A"; break;
+        
+            case 8 : grade[i] = "B"; break;
+        
+            case 7 : grade[i] = "C"; break;
+        
+            default: grade[i] = "D";
+			}
+			
+			System.out.print(grade[i]);
+		}
+		
+		
+	}
+
+}
