@@ -9,7 +9,7 @@ import java.util.*;
 // IsEmpty() 스텍 내부 확인
 
 class Stack<T>{
-
+	private Node<T> top;
 	// Node를 통해서 입력값 저장 밑 입력 값 다음 값 설정
 	class Node<T>{
 		private T data;
@@ -21,7 +21,7 @@ class Stack<T>{
 		}
 	}
 
-	private Node<T> top;
+
 	
 	public T pop(){
 		if(top == null){
